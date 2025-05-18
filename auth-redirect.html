@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head><title>MSAL Auth Redirect</title></head>
-  <body>
-    <script>
-      // Relay the URL back to the opener and close the popup
-      if (window.opener) {
-        window.opener.postMessage(window.location.href, "*");
-        window.close();
-      }
-    </script>
-  </body>
+<head>
+  <title>MSAL Redirect</title>
+</head>
+<body>
+<script>
+  // This will send the final URL back to the opener (the app) and close the popup
+  if (window.opener) {
+    window.opener.postMessage(window.location.href, "*");
+    window.close();
+  } else {
+    document.body.innerText = "Auth successful. You can close this page.";
+  }
+</script>
+</body>
 </html>
