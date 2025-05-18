@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head><title>Auth Redirect</title></head>
-<body>
-<script>
-  window.opener?.postMessage(location.href, "*");
-  window.close();
-</script>
-</body>
+  <head><title>MSAL Auth Redirect</title></head>
+  <body>
+    <script>
+      // Relay the URL back to the opener and close the popup
+      if (window.opener) {
+        window.opener.postMessage(window.location.href, "*");
+        window.close();
+      }
+    </script>
+  </body>
 </html>
